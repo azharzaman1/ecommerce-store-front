@@ -1,0 +1,28 @@
+.container {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-content {
+  width: 100%;
+}
+
+/* @media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 900px) {
+} */
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding: 0 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1367px) {
+  .container {
+    padding: 0 5rem;
+  }
+}

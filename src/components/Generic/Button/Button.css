@@ -1,0 +1,70 @@
+.button {
+  cursor: pointer;
+  transition: all 0.15;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  color: var(--text-clr);
+}
+
+/* button primary */
+
+.button.primary {
+  background-color: var(--primary-clr);
+  border: 1px solid var(--primary-clr);
+  padding: 10px 1rem;
+  color: white;
+}
+
+.button.primary:hover {
+  opacity: 0.95;
+}
+
+/* button secondary */
+
+.button.secondary {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding: 10px 1rem;
+
+  background-color: transparent;
+}
+
+.button.secondary:hover {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+/* button text */
+
+.button.text {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--text-clr);
+  text-decoration: underline;
+  /* text-decoration-color: white; */
+  padding: 0;
+}
+
+.button.text:hover {
+  color: var(--primary-clr);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-clr);
+  transition: color 0.15s;
+}
+
+/* buttons fluid - full width */
+
+.button.fluid {
+  width: 100%;
+}
+
+/* button :disabled */
+
+.button:disabled {
+  background-color: gray;
+  border-color: gray;
+}
+
+.button:disabled:hover {
+  background-color: gray;
+  border-color: gray;
+}

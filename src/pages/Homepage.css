@@ -1,0 +1,8 @@
+.homepage-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage-content > h3 {
+  margin-top: 1rem;
+}

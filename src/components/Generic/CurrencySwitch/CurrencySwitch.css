@@ -1,0 +1,10 @@
+.currency-switch {
+  margin-right: 1rem;
+}
+
+#currency-switch {
+  outline: none;
+  border: none;
+  padding: 0 5px;
+  background-color: var(--background-clr);
+}

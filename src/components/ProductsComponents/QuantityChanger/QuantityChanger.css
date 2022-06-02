@@ -1,0 +1,17 @@
+.quantity-changer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quantity-changer-button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.quantity-changer-button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+}

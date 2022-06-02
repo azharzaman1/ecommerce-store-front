@@ -1,0 +1,193 @@
+.pdp-content {
+  display: flex;
+  padding: 4rem 0;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+.pdp-gallery {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pdp-gallery-thumbnails {
+  flex: 1;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.pdp-gallery-thumbnails > img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid rgba(100, 100, 100, 0.1);
+  margin-bottom: 5px;
+}
+
+.pdp-gallery-thumbnails > img:hover {
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  transition: border 0.15;
+}
+
+.pdp-gallery-cover {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdp-gallery-cover > img {
+  height: 400px;
+  max-height: 550px;
+  /* for desktop */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 900px) {
+  .pdp-content {
+    flex-direction: row;
+  }
+
+  .pdp-left {
+    flex: 0.55;
+  }
+
+  .pdp-right {
+    flex: 0.45;
+    padding-left: 2rem;
+    padding-bottom: 0;
+  }
+
+  .pdp-gallery {
+    flex-direction: row;
+  }
+
+  .pdp-gallery-thumbnails {
+    flex: 0.2;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: unset;
+  }
+
+  .pdp-gallery-thumbnails > img {
+    width: 75px;
+    height: 80px;
+  }
+
+  .pdp-gallery-cover {
+    flex: 0.8;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .pdp-gallery-cover > img {
+    width: 100%;
+    max-width: 600px;
+    height: unset;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .pdp-left {
+    flex: 0.6;
+    margin-right: 2rem;
+  }
+
+  .pdp-right {
+    flex: 0.4;
+    padding-left: 4rem;
+  }
+}
+
+.pdp-right-info-brand {
+  margin-top: 1rem !important;
+}
+
+.pdp-right-attributes {
+  margin-top: 2rem;
+}
+
+.pdp-right-attribute {
+  margin-top: 1rem;
+}
+
+.pdp-right-price {
+  margin-top: 2rem;
+}
+
+.pdp-right-price > h4 {
+  margin-top: 0.75rem;
+}
+
+.pdp-right-qty-changer {
+  width: 100px;
+}
+
+.pdp-right-qty-changer {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdp-cart-button {
+  padding: 10px 3.5rem !important;
+  margin: 2rem 0 2rem;
+}
+
+.pdp-right-description-text {
+  font-family: var(--font-secondary);
+  color: var(--secondar-text-clr);
+}
+
+.pdp-right-description-text h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.pdp-right-description-text h2 {
+  font-size: 23px;
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+.pdp-right-description-text h3 {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+.pdp-right-description-text p {
+  padding: 10px 0;
+  font-family: var(--font-secondary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 159.96%;
+}
+
+.pdp-right-description-text ul {
+  padding-left: 20px;
+}
+
+.pdp-right-description-text li {
+  padding: 2.5px 0;
+}
+
+.pdp-right-description-text img {
+  width: 75%;
+  margin: 10px auto;
+}

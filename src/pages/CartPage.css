@@ -1,0 +1,44 @@
+.cart-page-content {
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.cart-page-content-container {
+  margin-top: 2rem;
+}
+
+/* calculations */
+
+.cart-page-calculations {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.cart-page-calculations > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-page-calculations-col2 {
+  margin-left: 5px;
+}
+
+.cart-page-calculations > div > h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+.cart-page-calculations > div > h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.cart-page-actions {
+  margin-top: 1rem;
+}
+
+.cart-page-actions-checkout {
+  width: 150px;
+}

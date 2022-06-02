@@ -1,0 +1,50 @@
+.images-gallery {
+  position: relative;
+}
+
+.carousal-controls {
+  position: absolute;
+}
+
+.carousal-controls.controlsVisibleOnHover {
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+
+.images-gallery:hover .carousal-controls.controlsVisibleOnHover {
+  display: block;
+  animation: controls-fadein 0.15s forwards linear;
+}
+
+@keyframes controls-fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.carousal-controls svg {
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 2px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousal-controls.smallSize svg {
+  width: 15px;
+  height: 15px;
+  padding: 1.5px;
+  margin: 0 2.5px;
+  cursor: pointer;
+}
+
+.carousal-controls.pos-bottom-right {
+  bottom: 1rem;
+  right: 0.5rem;
+}
