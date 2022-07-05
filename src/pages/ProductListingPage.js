@@ -49,7 +49,7 @@ export class ProductListingPage extends PureComponent {
       ? `${capitalizeString(params.categoryID)} - eCommerce Store Front`
       : location.pathname === "/"
       ? `Store - eCommerce Store Front`
-      : "Scandiweb PWA - eCommerce Store Front";
+      : "eCommerce Store Front";
 
     this.fetchCategory();
   }
