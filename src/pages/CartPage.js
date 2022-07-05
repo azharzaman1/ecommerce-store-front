@@ -28,9 +28,9 @@ export class CartPage extends PureComponent {
       <div className="cart-page">
         <Container maxWidth={1400}>
           <div className="page-content cart-page-content">
-            <div className="page-header cart-page-header">
-              <div className="cart-page-header-left">
-                <h1 className="heading tertiary uppercase bold">Cart</h1>
+            <div className="page-header cart-page-header flex">
+              <div className="listing-page-header-left">
+                <h2 className="heading primary capitalize">CART</h2>
               </div>
             </div>
             <div className="page-content-container cart-page-content-container">

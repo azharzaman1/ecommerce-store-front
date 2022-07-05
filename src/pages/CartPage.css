@@ -7,6 +7,12 @@
   margin-top: 2rem;
 }
 
+.cart-page-header {
+  background-color: #f9fafb;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.15);
+}
+
 /* calculations */
 
 .cart-page-calculations {

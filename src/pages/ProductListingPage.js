@@ -95,7 +95,9 @@ export class ProductListingPage extends PureComponent {
           <div className="product-listing-page-content">
             <div className="page-header product-listing-page-header flex">
               <div className="listing-page-header-left">
-                <h2 className="heading primary capitalize">{category.name}</h2>
+                <h2 className="heading primary capitalize">
+                  {category.name === "all" ? "Store" : category.name}
+                </h2>
               </div>
             </div>
             <div className="page-content-container product-listing-page-container">

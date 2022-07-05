@@ -1,3 +1,9 @@
+.product-listing-page-header {
+  background-color: #f9fafb;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.15);
+}
+
 .product-listing-page-content {
   padding: 4rem 0 5rem;
   display: flex;
@@ -5,7 +11,6 @@
 }
 
 .product-listing-page-products-list {
-  margin-top: 4rem !important;
   width: 100%;
   display: grid;
   margin: 0 auto;
