@@ -55,7 +55,6 @@ export class ProductListingPage extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (
       this.props.reactRouterDom.params.categoryID !==
       prevProps.reactRouterDom.params.categoryID

@@ -99,7 +99,9 @@ export class Header extends PureComponent {
                     />
                     {/* <CartIcon /> */}
                     {this.props.cart.length > 0 && (
-                      <span>{getCartTotalProducts(this.props.cart)}</span>
+                      <span id="header-cart-badge">
+                        {getCartTotalProducts(this.props.cart)}
+                      </span>
                     )}
                   </div>
                   <CartOutsideTracker>

@@ -12,25 +12,28 @@ class CartOutsideTracker extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
+    document.addEventListener("click", this.handleClickOutside);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
+    document.removeEventListener("click", this.handleClickOutside);
   }
 
-  /**
-   * Alert if clicked on outside of element
-   */
   handleClickOutside(event) {
-    const clickOnOpenButton = event.target.id === "header-cart-icon";
+    const clickOnOpenButton =
+      event.target.id === "header-cart-icon" ||
+      event.target.id === "header-cart-badge";
     const clickOnOverlay = event.target.id === "background-overlay";
+    const currencySwitchIsOpen = document
+      .getElementById("select-options")
+      .classList.contains("show");
 
-    if (clickOnOpenButton) {
+    if (clickOnOpenButton && !currencySwitchIsOpen) {
       document.getElementById("floating-minicart").classList.add("show");
       document.getElementById("background-overlay").classList.add("show");
       document.getElementById("app-body").classList.add("overflow-y-hidden");
     } else if (this.wrapperRef && clickOnOverlay) {
+      // click on overlay
       document.getElementById("floating-minicart").classList.remove("show");
       document.getElementById("background-overlay").classList.remove("show");
       document.getElementById("app-body").classList.remove("overflow-y-hidden");

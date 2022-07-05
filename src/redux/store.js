@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import appReducer from "./slices/appSlice";
 import storage from "redux-persist/lib/storage";
 import {
@@ -10,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { combineReducers } from "redux";
 
 const reducers = combineReducers({ appStore: appReducer });
 

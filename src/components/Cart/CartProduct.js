@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { SET_CART } from "../../redux/slices/appSlice";
-import { priceIdentifier } from "../../utils";
+import { convertDecimals, priceIdentifier } from "../../utils";
 import Button from "../Generic/Button";
 import AttributeSet from "../ProductsComponents/AttributeSet";
 import QuantityChanger from "../ProductsComponents/QuantityChanger";
@@ -37,7 +37,10 @@ export class CartProduct extends PureComponent {
             <div className="cart-product-price">
               <h3 className="heading price">
                 {priceIdentifier(product.prices, currency).currency.symbol}
-                {priceIdentifier(product.prices, currency).amount}
+                {convertDecimals(
+                  priceIdentifier(product.prices, currency).amount,
+                  2
+                )}
               </h3>
             </div>
 
@@ -48,9 +51,8 @@ export class CartProduct extends PureComponent {
                     key={index}
                     attribute={attribute}
                     index={index}
-                    productFromCart={this.props.product}
                     className="cart-product-attribute"
-                    readOnly={false}
+                    readOnly
                   />
                 ))}
               </div>

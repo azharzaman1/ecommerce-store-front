@@ -4,7 +4,12 @@ import CartProduct from "../components/Cart/CartProduct";
 import Button from "../components/Generic/Button";
 import Container from "../components/Generic/Layout/Container";
 import { withReactRouterDom } from "../HOCs/withReactRouterDom";
-import { calculateTax, getCartTotal, getCartTotalProducts } from "../utils";
+import {
+  calculateTax,
+  convertDecimals,
+  getCartTotal,
+  getCartTotalProducts,
+} from "../utils";
 import "./CartPage.css";
 
 export class CartPage extends PureComponent {
@@ -16,14 +21,15 @@ export class CartPage extends PureComponent {
     const cartTotals =
       this.props?.cart.length > 0 &&
       getCartTotal(this.props?.cart, this.props?.currency);
-    const totalTax =
-      cartTotals?.total && parseFloat(calculateTax(cartTotals?.total, 21));
+    const totalTax = cartTotals?.total
+      ? parseFloat(calculateTax(cartTotals?.total, 21))
+      : 0;
     return (
       <div className="cart-page">
         <Container maxWidth={1400}>
           <div className="page-content cart-page-content">
             <div className="page-header cart-page-header">
-              <div className="listing-page-header-left">
+              <div className="cart-page-header-left">
                 <h1 className="heading tertiary uppercase bold">Cart</h1>
               </div>
             </div>
@@ -45,12 +51,15 @@ export class CartPage extends PureComponent {
                     <div className="cart-page-calculations-col2">
                       <h5>
                         {cartTotals.currency.symbol}
-                        {totalTax}
+                        {convertDecimals(totalTax, 2)}
                       </h5>
                       <h5>{getCartTotalProducts(this.props.cart)}</h5>
                       <h5>
                         {cartTotals.currency.symbol}
-                        {(totalTax + parseFloat(cartTotals.total)).toFixed(2)}
+                        {convertDecimals(
+                          totalTax + parseFloat(cartTotals.total),
+                          2
+                        )}
                       </h5>
                     </div>
                   </div>

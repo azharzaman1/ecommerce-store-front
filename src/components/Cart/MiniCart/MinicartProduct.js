@@ -5,7 +5,7 @@ import {
   PRODUCT_QUANTITY_INCREMENT,
   SET_CART,
 } from "../../../redux/slices/appSlice";
-import { priceIdentifier } from "../../../utils";
+import { convertDecimals, priceIdentifier } from "../../../utils";
 import Button from "../../Generic/Button";
 import AttributeSet from "../../ProductsComponents/AttributeSet";
 import QuantityChanger from "../../ProductsComponents/QuantityChanger";
@@ -35,7 +35,10 @@ export class Product extends PureComponent {
           <p className="text primary">{product.brand}</p>
           <p className="text primary bold">
             {priceIdentifier(product.prices, currency).currency.symbol}
-            {priceIdentifier(product.prices, currency).amount}
+            {convertDecimals(
+              priceIdentifier(product.prices, currency).amount,
+              2
+            )}
           </p>
           {product.attributes.length > 0 && (
             <div className="minicart-product-attributes">
@@ -44,12 +47,10 @@ export class Product extends PureComponent {
                   key={index}
                   index={index}
                   attribute={attribute}
-                  renderedByCart
                   smallSize
-                  productFromCart={product}
                   uppercase={false}
                   className="minicart-product-attribute"
-                  readOnly={true}
+                  readOnly
                 />
               ))}
             </div>

@@ -1,9 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import {
-  SET_PRODUCT,
-  UPDATE_PRODUCT_IN_CART,
-} from "../../../redux/slices/appSlice";
+import { SET_PRODUCT } from "../../../redux/slices/appSlice";
 import { replaceItemAtIndex } from "../../../utils";
 import "./AttributeSet.css";
 
@@ -12,14 +9,11 @@ export class Attributes extends PureComponent {
     const {
       attribute,
       index,
-      readOnly,
       product,
       className,
-      productFromCart,
       smallSize,
-      renderedByCart,
+      readOnly,
       SET_PRODUCT,
-      UPDATE_PRODUCT_IN_CART,
     } = this.props;
     const { items } = attribute;
 
@@ -43,25 +37,6 @@ export class Attributes extends PureComponent {
                     onClick={
                       readOnly
                         ? () => {}
-                        : renderedByCart
-                        ? // in minicart or other location than pdp
-                          () => {
-                            const initialAtrribute =
-                              productFromCart.attributes[index];
-                            let modifiedAttribute = {
-                              ...initialAtrribute,
-                              selection: item,
-                            };
-                            const modifiedProduct = {
-                              ...productFromCart,
-                              attributes: replaceItemAtIndex(
-                                productFromCart.attributes,
-                                modifiedAttribute,
-                                index
-                              ),
-                            };
-                            UPDATE_PRODUCT_IN_CART(modifiedProduct);
-                          }
                         : () => {
                             // in pdp
                             const initialAtrribute = product.attributes[index];
@@ -95,27 +70,7 @@ export class Attributes extends PureComponent {
                   } ${smallSize && "small"}`}
                   onClick={
                     readOnly
-                      ? // do nothhing
-                        () => {}
-                      : renderedByCart
-                      ? // in minicart or other location than pdp
-                        () => {
-                          const initialAtrribute =
-                            productFromCart.attributes[index];
-                          let modifiedAttribute = {
-                            ...initialAtrribute,
-                            selection: item,
-                          };
-                          const modifiedProduct = {
-                            ...productFromCart,
-                            attributes: replaceItemAtIndex(
-                              productFromCart.attributes,
-                              modifiedAttribute,
-                              index
-                            ),
-                          };
-                          UPDATE_PRODUCT_IN_CART(modifiedProduct);
-                        }
+                      ? () => {}
                       : () => {
                           const initialAtrribute = product.attributes[index];
                           let modifiedAttribute = {
@@ -150,6 +105,6 @@ const mapStateToProps = (state) => ({
   product: state.appStore.product,
 });
 
-const mapDispatchToProps = { SET_PRODUCT, UPDATE_PRODUCT_IN_CART };
+const mapDispatchToProps = { SET_PRODUCT };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Attributes);

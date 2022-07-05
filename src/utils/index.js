@@ -109,3 +109,11 @@ export const capitalizeString = (str) => {
 
   return str1.toUpperCase() + str2;
 };
+
+export const convertDecimals = (figure, decimalPoints) => {
+  return Number(figure).toFixed(decimalPoints);
+};
+
+export const splitString = (str, chars, continueIndicator = true) => {
+  return `${String(str).substring(0, chars)}${continueIndicator && "..."}`;
+};

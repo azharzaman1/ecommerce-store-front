@@ -8,3 +8,10 @@
   padding: 0 5px;
   background-color: var(--background-clr);
 }
+select#currency-switch span {
+  display: none !important;
+}
+
+select#currency-switch:focus span {
+  display: block !important;
+}

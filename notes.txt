@@ -4,3 +4,25 @@ Pending Fixes
 
 Improvements
 
+-- The logo is missing. [DONE]
+-- The currency list is hardcoded [DONE]
+-- Don't fetch all products for all categories. Fetch products for the current category only [DONE]
+-- Not all image thumbnails are rendered on PDP [DONE]
+-- The product brand is missing [DONE]
+-- Please display the "ALL" category as the default page on the product startup. [DONE]
+-- Product should be removed from cart when quantity is decreased to 0 [DONE]
+-- dangerouslySetInnerHTML is dangerous. Please try to find a safer way. [DONE]
+-- When I add the same product to the cart multiple times, its quantity should increase. [DONE]
+-- The project barely matches the design. Please make it look like in Figma. [DONE]
+-- Cart Overlay backdrop doesn't cover the entire screen. [DONE]
+
+-- The product brand is missing. - now it’s missing on the PLP. Please check the design. [DONE]
+-- Price should have two digits in the decimal part. [DONE]
+-- Please make the “Out of stock“ label match the design. [DONE]
+-- Currency Switcher doesn’t match the design. [DONE]
+
+-- Currency Switcher doesn't close on click outside the component. [DONE]
+-- It shouldn't be possible to open both Currency Switcher and Cart Overlay at the same time. [DONE]
+
+Pending Checks
+-- All eslint errors and warnings must be fixed [CHECKED]

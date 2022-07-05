@@ -1,0 +1,58 @@
+.select-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-switch-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 160%;
+  cursor: pointer;
+}
+
+.select-switch-button > span.select-icon {
+  margin-left: 0.8rem;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  display: none;
+}
+
+.select-options.show {
+  display: block;
+  position: absolute;
+  top: 3rem;
+  background-color: white;
+  min-width: 100px;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 2px 15px rgba(100, 100, 100, 0.1);
+  z-index: 20;
+}
+
+.select-options.show > li {
+  list-style-type: none;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.select-options.show > li:hover {
+  list-style-type: none;
+  background-color: #eeeeee;
+}

@@ -13,7 +13,12 @@ import {
   SET_PRODUCT,
   PRODUCT_QUANTITY_INCREMENT,
 } from "../redux/slices/appSlice";
-import { detectCartProductVariants, priceIdentifier } from "../utils";
+import {
+  convertDecimals,
+  detectCartProductVariants,
+  priceIdentifier,
+  splitString,
+} from "../utils";
 import DOMPurify from "dompurify";
 import "./ProductDisplayPage.css";
 
@@ -27,6 +32,7 @@ export class ProductDisplayPage extends PureComponent {
       coverImage:
         "https://banksiafdn.com/wp-content/uploads/2019/10/placeholde-image.jpg",
       thumbnails: [],
+      showFullDescription: false,
     };
   }
   componentDidMount() {
@@ -48,6 +54,8 @@ export class ProductDisplayPage extends PureComponent {
           productLoading: res.loading,
           error: res.errors,
           coverImage: res.data.product.gallery[0],
+          showFullDescription:
+            res.data.product.description.length < 500 ? true : false,
         });
       })
       .catch((err) => console.error(err));
@@ -130,8 +138,8 @@ export class ProductDisplayPage extends PureComponent {
                   {attributes.map((attribute, index) => (
                     <AttributeSet
                       key={index}
-                      attribute={attribute}
                       index={index}
+                      attribute={attribute}
                       uppercase
                       className="pdp-right-attribute"
                     />
@@ -143,7 +151,10 @@ export class ProductDisplayPage extends PureComponent {
                 <h4 className="heading price-label">PRICE:</h4>
                 <h4 className="heading price">
                   {priceIdentifier(product.prices, currency).currency.symbol}
-                  {priceIdentifier(product.prices, currency).amount}
+                  {convertDecimals(
+                    priceIdentifier(product.prices, currency).amount,
+                    2
+                  )}
                 </h4>
               </div>
 
@@ -197,14 +208,26 @@ export class ProductDisplayPage extends PureComponent {
               </div>
               {product.description && (
                 <div className="pdp-right-description">
-                  <div>
-                    <div
-                      className="pdp-right-description-text"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(product.description),
-                      }}
-                    />
-                  </div>
+                  <div
+                    className="pdp-right-description-text"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        this.state.showFullDescription
+                          ? product.description
+                          : splitString(product.description, 500)
+                      ),
+                    }}
+                  />
+                  {!this.state.showFullDescription && (
+                    <Button
+                      type="text"
+                      onClick={() =>
+                        this.setState({ showFullDescription: true })
+                      }
+                    >
+                      Read more
+                    </Button>
+                  )}
                 </div>
               )}
             </div>
