@@ -7,6 +7,7 @@ import { client } from "../qraphql/client";
 import { GET_CATEGORY_BY_ID } from "../qraphql/queries";
 import { SET_CATEGORIES } from "../redux/slices/appSlice";
 import { capitalizeString } from "../utils";
+import { ReactComponent as Loader } from "../assets/loader.svg";
 import "./ProductListingPage.css";
 
 export class ProductListingPage extends PureComponent {
@@ -20,6 +21,7 @@ export class ProductListingPage extends PureComponent {
   }
 
   fetchCategory() {
+    this.setState({ categoryIsLoading: true });
     const { params, location } = this.props.reactRouterDom;
     client
       .query({
@@ -30,7 +32,6 @@ export class ProductListingPage extends PureComponent {
             : location.pathname === "/"
             ? "all"
             : "",
-          categoryIsLoading: true,
         },
       })
       .then((res) => {
@@ -70,7 +71,9 @@ export class ProductListingPage extends PureComponent {
     if (this.state.categoryIsLoading) {
       return (
         <div className="content-center">
-          <h1>{`Loading ...`}</h1>
+          <div className="loader">
+            <Loader />
+          </div>
         </div>
       );
     }
@@ -78,13 +81,13 @@ export class ProductListingPage extends PureComponent {
     if (!category) {
       return (
         <div className="content-center">
-          <h1>
-            {categoryID
-              ? `"${categoryID}" category not found`
-              : this.props.reactRouterDom.location.pathname === "/"
-              ? "Loading... store"
-              : ""}
-          </h1>
+          {categoryID ? (
+            <h1>{`${categoryID} category not found`}</h1>
+          ) : this.props.reactRouterDom.location.pathname === "/" ? (
+            <div className="loader">
+              <Loader />
+            </div>
+          ) : null}
         </div>
       );
     }

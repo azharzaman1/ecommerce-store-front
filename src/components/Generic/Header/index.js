@@ -55,32 +55,36 @@ export class Header extends PureComponent {
               <div className="header-main-content">
                 <div className="header-main-left">
                   <nav>
-                    {this.state.categories.length > 0 ? (
-                      this.state.categories.map((cat) => (
-                        <div
-                          key={cat.name}
-                          className={`nav-link-container ${
-                            pathname === `/category/${cat.name}`
-                              ? "active"
-                              : pathname === "/" && cat.name === "all"
-                              ? "active"
-                              : ""
-                          }`}
-                        >
-                          <ThemeLink
-                            key={cat.name}
-                            uppercase
-                            href={
-                              cat.name === "all" ? `/` : `/category/${cat.name}`
-                            }
-                          >
-                            {cat.name === "all" ? "Store" : cat.name}
-                          </ThemeLink>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="empty-nav-link-container">.</div>
-                    )}
+                    <div
+                      className={`nav-link-container ${
+                        pathname === "/" && "active"
+                      }`}
+                    >
+                      <ThemeLink uppercase href="/">
+                        Store
+                      </ThemeLink>
+                    </div>
+                    {this.state.categories.length > 0 &&
+                      this.state.categories.map((cat) => {
+                        if (cat.name !== "all") {
+                          return (
+                            <div
+                              key={cat.name}
+                              className={`nav-link-container ${
+                                pathname === `/category/${cat.name}` && "active"
+                              }`}
+                            >
+                              <ThemeLink
+                                key={cat.name}
+                                uppercase
+                                href={`/category/${cat.name}`}
+                              >
+                                {cat.name}
+                              </ThemeLink>
+                            </div>
+                          );
+                        }
+                      })}
                   </nav>
                 </div>
                 <div className="header-main-center">

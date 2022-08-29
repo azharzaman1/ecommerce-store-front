@@ -41,12 +41,6 @@
   border-bottom: 2px solid var(--background-clr);
 }
 
-/* in case server is off and links are nto available */
-.empty-nav-link-container {
-  padding-bottom: 20px;
-  color: var(--background-clr);
-}
-
 .nav-link-container.active {
   border-bottom: 2px solid var(--primary-clr);
 }

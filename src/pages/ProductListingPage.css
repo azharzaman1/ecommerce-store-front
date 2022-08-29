@@ -10,6 +10,10 @@
   flex-direction: column;
 }
 
+.product-listing-page-container {
+  margin-top: 1rem;
+}
+
 .product-listing-page-products-list {
   width: 100%;
   display: grid;

@@ -20,6 +20,7 @@ import {
   splitString,
 } from "../utils";
 import DOMPurify from "dompurify";
+import { ReactComponent as Loader } from "../assets/loader.svg";
 import "./ProductDisplayPage.css";
 
 export class ProductDisplayPage extends PureComponent {
@@ -72,7 +73,13 @@ export class ProductDisplayPage extends PureComponent {
     const { attributes } = product;
 
     if (this.state.productLoading) {
-      return <div>Loading ...</div>;
+      return (
+        <div className="content-center">
+          <div className="loader">
+            <Loader />
+          </div>
+        </div>
+      );
     }
 
     if (this.state.errors) {
