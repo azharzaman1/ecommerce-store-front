@@ -12,8 +12,8 @@
 
 ## <u>About me</u>
 
-Live link: [https://ecom-store-front.vercel.app](https://ecom-store-front.vercel.app)\
+Live link: [https://ecom-store.azharzaman.com/](https://ecom-store.azharzaman.com/)\
 Portfolio website: [https://azharzaman.com](https://azharzaman.com/)\
 Github: [https://github.com/azharzaman1](https://github.com/azharzaman1)\
 LinkedIn: [https://linkedin.com/in/azhar-zaman](https://linkedin.com/in/azhar-zaman/)\
-Twitter: [https://twitter.com/idrazhar](https://twitter.com/idrazhar)
+Twitter: [https://twitter.com/imdrazhar](https://twitter.com/imdrazhar)
